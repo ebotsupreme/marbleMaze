@@ -217,6 +217,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             score += 1
         } else if node.name == "finish" {
             // next level?
+            isGameOver = true
+            score = 0
+            player.removeFromParent()
+            restart()
+        }
+    }
+    
+    func restart() {
+        if isGameOver {
+            loadLevel()
+            createPlayer()
+            isGameOver = false
         }
     }
     
